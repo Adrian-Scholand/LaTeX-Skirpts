@@ -1,0 +1,180 @@
+% =================================== Preamble ===================================
+
+% ================================== Shortcuts ===================================
+\newcommand{\ddx}{\frac{d}{dx}}									% d/dx
+\newcommand{\ddt}{\frac{d}{dt}}									% d/dt
+\newcommand{\del}{\partial}										% Del-symbol
+\newcommand{\N}{\mathbb{N}}										% Double stroke N
+\newcommand{\R}{\mathbb{R}}										% Double stroke R
+\newcommand{\matL}{\mathcal{L}}									% Lagrange L
+\newcommand{\matH}{\mathcal{H}}									% Hammilton H
+
+% ================================== Dedication ==================================
+
+
+
+
+% ================================ Fix the labels ================================
+\let\oldlabel\label												% Save old lable
+\renewcommand{\label}[1]{\phantomsection\oldlabel{#1}}			% Lable anchor
+
+% ============================ Fix the index anchors =============================
+%\let\oldindex\index												% Save old index
+%\renewcommand{\index}[1]{\phantomsection\oldindex{#1}}			% index anchor
+
+% ================================= highlighted ==================================
+\newcommand{\whitebg}[1]{{%										% White
+	\setlength{\fboxsep}{-\fboxrule}							% Remove spaces
+	\fcolorbox{white!80}{white}{\strut#1}}}
+
+\newcommand{\redbg}[1]{{%										% Red
+	\setlength{\fboxsep}{-\fboxrule}							% Remove spaces
+	\fcolorbox{red!80}{red}{\strut#1}}}
+
+% =================================== Utility ====================================
+
+
+
+
+% ==================================== Ruler =====================================
+\newcommand{\ruler}{
+	\begin{tikzpicture}[overlay,remember picture]
+		% Calculate the positions of the margins
+		\coordinate (right_margin) at ($(current page.east) - (2.5cm,0)$);								% Right margin
+		\coordinate (left_margin) at ($(current page.west) + (2.5cm,0)$);								% Left margin
+		\coordinate (top_margin) at ($(current page.north) - (0,1cm)$);									% Top margin
+		\coordinate (bottom_margin) at ($(current page.south) + (0,1.5cm)$);							% Botoom margin
+		% Calculate the positions of the vertical lines
+		% These divide the space inbetewwn the margins and not the whole page
+		\coordinate (one_half_V_marg) at ($(left_margin)!0.5!(right_margin)$);							% 1/2 vertical margin
+		\coordinate (one_third_V_marg) at ($(left_margin)!0.333!(right_margin)$);						% 1/3 vertical margin
+		\coordinate (two_third_V_marg) at ($(left_margin)!0.666!(right_margin)$);						% 2/3 vertical margin
+		\coordinate (one_sixth_V_marg) at ($(left_margin)!0.1666!(right_margin)$);						% 1/6 vertical margin
+		\coordinate (five_sixth_V_marg) at ($(left_margin)!0.833!(right_margin)$);						% 5/6 vertical margin
+		\coordinate (one_fourth_V_marg) at ($(left_margin)!0.25!(right_margin)$);						% 1/4 vertical margin
+		\coordinate (three_fourth_V_marg) at ($(left_margin)!0.75!(right_margin)$);						% 3/4 vertical margin	
+		% Draw the margins
+		% Right margin
+		\draw[line width=1pt] (right_margin |- current page.south) -- (right_margin |- current page.north)
+		node[below=28.3cm, fill=none, text=black]{
+			\begin{minipage}{1cm}
+				\centering
+				\begin{center}
+					\whitebg{RM} \\ \whitebg{$18.5$cm}
+				\end{center}
+		\end{minipage}};
+		% Left margin
+		\draw[line width=1pt] (left_margin |- current page.south) -- (left_margin |- current page.north)
+		node[below=28.3cm, fill=none, text=black]{
+			\begin{minipage}{1cm}
+				\centering
+				\begin{center}
+					\whitebg{LM} \\ \whitebg{$2.5cm$}
+				\end{center}
+		\end{minipage}};
+		% Top margin
+		\draw[line width=1pt] (current page.west |- top_margin) -- (current page.east |- top_margin)
+		node[pos=0.9404, fill=white, text=black]{
+			\begin{minipage}{1cm}
+				\centering
+				\begin{center}
+					\whitebg{TM} \\ \whitebg{$1$cm}
+				\end{center}
+		\end{minipage}};
+		% Bottom margin
+		\draw[line width=1pt] (current page.west |- bottom_margin) -- (current page.east |- bottom_margin)
+		node[pos=0.9404, fill=white, text=black]{
+			\begin{minipage}{1cm}
+				\centering
+				\begin{center}
+					\whitebg{BM} \\ \whitebg{$28$cm}
+				\end{center}
+		\end{minipage}};
+		
+		% Draw the vertical lines
+		% 1/2
+		\draw[line width=1pt, red] (one_half_V_marg |- current page.south) -- (one_half_V_marg |- current page.north)
+		node[below=28.3cm, fill=none, text=black]{
+			\begin{minipage}{2cm}
+				\centering
+				\begin{center}
+					\whitebg{1/2} \\ \whitebg{$10.5$cm}
+				\end{center}
+		\end{minipage}};
+		% 1/3
+		\draw[line width=1pt] (one_third_V_marg |- current page.south) -- (one_third_V_marg |- current page.north)
+		node[below=28.3cm, fill=none, text=black]{
+			\begin{minipage}{2cm}
+				\centering
+				\begin{center}
+					\whitebg{1/3} \\ \whitebg{$7.83$cm}
+				\end{center}
+			\end{minipage}};
+		% 2/3
+		\draw[line width=1pt] (two_third_V_marg |- current page.south) -- (two_third_V_marg |- current page.north)
+		node[below=28.3cm, fill=none, text=black]{
+			\begin{minipage}{2cm}
+				\centering
+				\begin{center}
+					\whitebg{2/3} \\ \whitebg{$13.16$cm}
+				\end{center}
+		\end{minipage}};
+		% 1/6
+		\draw[line width=1pt] (one_sixth_V_marg |- current page.south) -- (one_sixth_V_marg |- current page.north)
+		node[below=28.3cm, fill=none, text=black]{
+			\begin{minipage}{2cm}
+				\centering
+				\begin{center}
+					\whitebg{1/6} \\ \whitebg{$6.83$cm}
+				\end{center}
+		\end{minipage}};
+		% 5/6
+		\draw[line width=1pt] (five_sixth_V_marg |- current page.south) -- (five_sixth_V_marg |- current page.north)
+		node[below=28.3cm, fill=none, text=black]{
+			\begin{minipage}{2cm}
+				\centering
+				\begin{center}
+					\whitebg{5/6} \\ \whitebg{$15.83$cm}
+				\end{center}
+		\end{minipage}};
+		% 1/4
+		\draw[line width=1pt, red] (one_fourth_V_marg |- current page.south) -- (one_fourth_V_marg |- current page.north)
+		node[below=28.3cm, fill=none, text=black]{
+			\begin{minipage}{2cm}
+				\centering
+				\begin{center}
+					\whitebg{1/4} \\ \whitebg{$6.5$cm}
+				\end{center}
+		\end{minipage}};
+		% 3/4
+		\draw[line width=1pt, red] (three_fourth_V_marg |- current page.south) -- (three_fourth_V_marg |- current page.north)
+		node[below=28.3cm, fill=none, text=black]{
+			\begin{minipage}{2cm}
+				\centering
+				\begin{center}
+					\whitebg{3/4} \\ \whitebg{$14.5$cm}
+				\end{center}
+		\end{minipage}};
+		% Draw the horizontal lines
+		% 1/2	
+		\draw[line width=1pt] ($(current page.west)+(0,-1cm)$) -- ($(current page.east)+(0,-1cm)$);
+		\foreach \x in {1,2,...,20}{
+			\node[fill=none, text=black, below] at ($(current page.west)!\x/21!(current page.east)+(0,-0.85cm)$) {
+				\begin{tikzpicture}
+					\draw[line width=1pt, rotate=90] (-0.1cm,0) -- (0.1cm,0);
+				\end{tikzpicture}};
+			\node[fill=none, text=black, below] at ($(current page.west)!\x/21!(current page.east)+(0,-1.3cm)$) {
+				\begin{minipage}[t]{2cm}
+					\centering
+					\begin{center}
+						\whitebg{$\x$cm}
+					\end{center}
+				\end{minipage}};
+		}
+	\end{tikzpicture}
+}
+% --------------------------------------------------------------------------------
+
+
+
+

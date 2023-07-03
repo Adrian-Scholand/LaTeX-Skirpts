@@ -1,0 +1,103 @@
+% =================================== Preamble ===================================
+
+% ============================= KOMA-Script-Options ==============================
+\KOMAoptions{fontsize=12pt, paper=a4}										% Schriftgröße und Papierformat setzen
+\KOMAoptions{DIV=12}														% Parameter mit dem man den Seitenrand ändern kann			
+\KOMAoptions{listof=totoc}													% Abbildungs- und Tabellenverzeichnisse im Inhaltsverzeichnis
+
+% ================================================================================
+\setcounter{secnumdepth}{3} 												% Numbering up to subsubsection
+\setcounter{tocdepth}{3}   													% Include subsubsections in the ToC
+% =================================== Packages ===================================
+% =================================== Language ===================================
+\usepackage[utf8]{inputenc}													% Among other things Umlaute, Unicode 8-bit
+\usepackage[T1]{fontenc}													% T1-Font Encoding recommended for european languages
+\usepackage{babel}															% Laguage-specific hyphenation, typographic rules
+% ==================================== Fonts =====================================
+\usepackage{newtxtext}														% Schönere Schriftart
+\usepackage{newtxmath}														% Schönere Schriftart
+% ================================= Math Symbols =================================
+\let\Bbbk\relax																% ERROR: \Bbbk' already defined
+\usepackage{amssymb}														% erweiterte mathematische Symbole
+\usepackage{amsmath}														% Umgebung für mathematische Formeln
+\usepackage{physics}														% Umgebung für physikalische Formeln
+\usepackage{esvect}															% u.A. Vektorpfeile
+\let\openbox\undefined														% ERROR: amsthm also defines \openbox
+\usepackage{amsthm}															% u.A. qed-Symbol
+\usepackage{siunitx} 														% Interligent setting of Numbers and Units
+\usepackage{cancel}															% Crossed out Formulas ("cancels to 0")
+% ==================================== Table =====================================
+\usepackage{array}															% Adjusting tables
+\usepackage{adjustbox}
+\usepackage{multirow}														% Combine cells horizontaly in a table
+\usepackage{mathtools}
+\usepackage[justification=centering]{caption}								% Captions (table)
+\usepackage{subcaption}														% Captions (table)
+\usepackage{tabularx}														% Other table envronment
+\usepackage{makecell}														% Other table envronment 
+
+% =================================== Utility ====================================
+\usepackage{lipsum}															% Dummy text
+\usepackage{blindtext}														% Dummy text similar to Lorem ipsum
+\usepackage{marvosym}														% Lightning-symbol
+\usepackage{setspace}														% Required for adjusting line spacing
+\usepackage{multicol}  														% Multiple columns on one page
+\usepackage{comment}														% Code-comments for multiple lines
+\usepackage{xcolor}															% Colors
+\usepackage{etoolbox}														% get the number of the current sectionlevel
+\usepackage{ifthen}															% logical statements
+\usepackage{scrlayer-scrpage}												% For Header and Footer
+\usepackage{lastpage}														% Get total number of pages
+\usepackage[left=2.5cm,right=2.5cm,top=1cm,bottom=1.7cm,includeheadfoot]{geometry}	% Header, footer and magins
+\usepackage{tikz}															% Overlayed textbox, lines, etc.
+\usetikzlibrary{calc}														% Calulate coordinates for tikz
+\usepackage{framed}															% Highlighting
+\usepackage{float}
+
+% ========================== Typesetting and Formatting ==========================
+\usepackage{soul}															% Underlined Text
+\usepackage{contour}														% Underlined Text
+\usepackage[autostyle=true]{csquotes}										% Intellignet inverted commas
+\usepackage[framemethod=TikZ]{mdframed}										% Red-Boxes
+
+% ================================ External Files ================================
+\usepackage{graphicx}														% Including Pictures
+\usepackage[backend=biber]{biblatex}										% Biber-Biblipgraphy
+\usepackage{imakeidx}														% Add index
+\usepackage{idxlayout}														% My own index-style
+
+% ========================== hyperlinks and references ===========================
+\usepackage{hyperref}														% Clickable Links 	% Must be last
+\hypersetup{																% Options for hyperref
+	colorlinks=true,
+	hyperindex=true,
+	hypertexnames=false,
+	plainpages=false,
+	pdfpagelabels,
+	linkcolor=mylinkcolor,
+	urlcolor=mylinkcolor,
+	citecolor=mylinkcolor,
+}
+
+
+\usepackage[all]{hypcap}													% Better links to figures than with hyperref alone		% Must be after hyperref
+\usepackage{nameref}														% Clickable words										% Must be after hyperref
+% =================================== Glossary ===================================
+\usepackage[nonumberlist]{glossaries}										% Add glossary with no pagenumbers						% Must be after hyperref
+\usepackage{glossary-inline}
+\usepackage{glossary-mcols}
+\usepackage{glossary-longragged}
+\usepackage{glossary-superragged}
+\usepackage{glossary-longbooktabs}
+\setglossarystyle{mcoltreespannav}											% requires 4.22 % Multicolumn, Navigation Line
+\usepackage{tocbibind}														% Add bibliography to table of contents
+
+% ================================== My Colors ===================================
+\definecolor{mylinkcolor}{RGB}{26,13,171}									% Color for the Links
+
+% ==================================== Maybe =====================================
+%\usepackage{threeparttable}
+%\usepackage{varwidth}
+%\usepackage{comment}
+%\usepackage{tcolorbox}
+%\usepackage{xparse}

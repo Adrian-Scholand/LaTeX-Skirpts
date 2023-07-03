@@ -1,0 +1,196 @@
+% ================================================================================
+\mychapter{Mathe Basics} \label{cap:math_basis}
+% ================================================================================
+	% ============================================================================
+	\mysection{Limes} \label{sec:lagr_gl}
+	% ============================================================================
+		\begin{proposition}{\currentboxsection \ Limes}{Limes} \label{Limes} \index{Limes} \\
+			Limes
+		\end{proposition}
+		
+		\begin{lemma}{\currentboxsection \ punktweiser Limes}{punktweiser Limes} \label{punktweiser_Limes} \index{punktweiser Limes} \\
+			punktweiser Limes
+		\end{lemma}
+
+		
+	% ============================================================================
+	\mysection{Topologie} \label{sec:topologie}
+	% ============================================================================
+		\begin{proposition}{\currentboxsection \ Gebiet}{Gebiet} \label{gebiet} \index{Gebiet} \\
+			
+		\end{proposition}
+
+		
+	% ================================================================================
+	\mysection{Matrizen} \label{secc:matrizen}
+	% ===============================================================================
+		\begin{proposition}{\currentboxsection \ Matrix}{Matrix} \label{matrix} \index{Matrix} \\
+			
+		\end{proposition}
+	
+		\begin{proposition}{\currentboxsection \ Matrix-Multiplikation}{Matrix-Multiplikation} \label{matrix-multiplikation} \index{Matrix-Multiplikation} \\
+			Matrix $\cdot$ Matrix
+			\begin{equation}
+				A \cdot B =
+				\begin{pmatrix}
+					a_{11} & a_{12} & a_{13} \\
+					a_{21} & a_{22} & a_{23} \\
+				\end{pmatrix}
+				\cdot
+				\begin{pmatrix}
+					b_{11} & b_{12} \\
+					b_{21} & b_{22} \\
+				\end{pmatrix}
+				=
+				\begin{pmatrix}
+					a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\
+					a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22} \\
+				\end{pmatrix}
+			\end{equation}
+			Matrix $\cdot$ Vektor			
+			\begin{equation}
+				A \cdot \vec{x} =
+				\begin{pmatrix}
+					a_{11} & a_{12} & a_{13} \\
+					a_{21} & a_{22} & a_{23} \\
+				\end{pmatrix}
+				\begin{pmatrix}
+					x \\
+					y \\
+					z \\
+				\end{pmatrix}
+				=
+				\begin{pmatrix}
+					a_{11}x + a_{12}y + a_{13}z \\
+					a_{21}x + a_{22}y + a_{23}z \\
+				\end{pmatrix}
+			\end{equation}
+			Nicht \hyperref[kommutativ]{kommutativ}!: $A \cdot B \neq B \cdot A$
+		\end{proposition}
+		
+		
+		
+		
+		\begin{proposition}{\currentboxsection \ Jacobi-Matrix}{Jacobi-Matrix} \label{jacobi_matrix} \index{Jacobi-Matrix} \hspace{11cm} $\mathbf{J}$ \\
+			Sei $f: U\subset \mathbb{R} ^{n}\to \mathbb{R} ^{m}$ \\
+			Alle partiellen Ableitungen existieren \\
+			Punkt x im Urbildraum $\R^n: x_1, ..., x_n \quad \quad a \in U$
+			\begin{equation}
+				\mathbf{J}_f(a) := \left(\frac{\partial f_i}{\partial x_j}(a)\right)_{i=1,\ldots ,m;\ j=1,\ldots ,n} =
+				\begin{pmatrix}
+					\frac{\partial f_1}{\partial x_1}(a) & \frac{\partial f_1}{\partial x_2}(a) & \ldots & \frac{\partial f_1}{\partial x_n}(a) \\
+					\vdots & \vdots & \ddots & \vdots \\
+					\frac{\partial f_m}{\partial x_1}(a) & \frac{\partial f_m}{\partial x_2}(a) & \ldots & \frac{\partial f_m}{\partial x_n}(a)
+				\end{pmatrix}
+			\end{equation}
+			In den Zeilen stehen also die transponierten Gradienten von $f_1, ..., f_m$ \\
+			\begin{tabular}{@{}m{1.7cm}m{1.5cm}m{1.5cm}m{1.5cm}m{4cm}@{}}
+				Oft auch: \rule{0pt}{0.8cm} & \large $J_f(a)$ \rule{0pt}{0.9cm}& \large $Df(a)$ \rule{0pt}{0.9cm}& \large $\dfrac{\partial f}{\partial x}(a)$ \rule{0pt}{0.9cm}& \large $\dfrac{\partial (f_1, ..., f_m)}{\partial (x_1, ..., x_n)}$ \rule{0pt}{0.9cm} \\[0.7cm]
+			\end{tabular} \\
+			\href{https://de.wikipedia.org/wiki/Jacobi-Matrix}{Wikipedia 28.06.23}
+		\end{proposition}
+		
+	% ================================================================================
+	\mysection{Mengenlehre} \label{sec:mengenlehre}
+	% ===============================================================================		
+		\begin{proposition}{\currentboxsection \ Menge}{Menge} \hspace{12.1cm} $M$ \label{menge} \index{Menge} \\
+			$M = \{1,2,3,5,...\} $ \hspace{2.5cm} $\emptyset$: leere Menge { } \hspace{0.5cm} $A \subseteq B \iff \forall x (x \in A \rightarrow x \in B ) $\\
+			(A: Teilmenge, B: Obermenge)
+		\end{proposition}
+		
+		\begin{proposition}{\currentboxsection \ Gruppe}{Gruppe} \hspace{12cm} $G$ \label{gruppe} \index{Gruppe} \\
+			Gruppe $G$ ist eine \hyperref[menge]{Menge} $G$ mit einer \hyperref[verknuepfung]{Verknüpfung} \\
+			4 Axiome: \\
+			\begin{tabular}{|m{3.5cm}|>{\centering\arraybackslash}m{5cm}|m{5.5cm}|}
+				\hline
+				\textbullet \ \hyperref[assoziativ]{Assoziativgesetz} & $a \circ (b \circ c) = (a \circ b) \circ c$ & $a,b,c \in G$ \\
+				\textbullet \ \hyperref[neutral_element]{neutrales Element} & $a \circ e = e \circ a = a$ & $a,e \in G$ \\
+				\textbullet \ \hyperref[invers_element]{inverses Element} & $a \circ a^{-1} = a^{-1} \circ a = e$ & $a, a^{-1} \in G$ \\
+				\textbullet \ \hyperref[abgeschlossenheit_menge]{Abgeschlossenheit} & $\forall a,b \in G: a \circ b = c: c \in G$ & Häufig als eigenschaft der Verknüpfung: $\circ : G \times G \rightarrow G$ \\
+				\hline
+			\end{tabular}			
+		\end{proposition}
+		
+		\begin{proposition}{\currentboxsection \ Abelsche Gruppe}{Abelsche Gruppe} \label{abelsche_gruppe} \index{Abelsche Gruppe} \\
+			Eine \hyperref[gruppe]{Gruppe}, in der zusätzlich gilt: \\
+			\textbullet \ \hyperref[kommutativ]{Kommutativgesetz} \hspace{2cm} $a \circ b = b \circ a$
+		\end{proposition}
+		
+		
+		\begin{proposition}{\currentboxsection \ Körper}{Körper} \label{koerper} \index{Körper} \\
+			Eine \hyperref[menge]{Menge} mit 2 \hyperref[verknuepfung]{Verknüpfungen} $(+,\cdot)$ \hspace{5cm} (häufig $\mathbb{K}$ statt $K$) \\
+			12 Axiome \\
+			\begin{tabular}{|m{3.35cm}|>{\centering\arraybackslash}m{3.6cm}|m{2.8cm}|>{\centering\arraybackslash}m{3.5cm}|}
+				\hline
+				\multicolumn{2}{|c|}{Addition $+$} & \multicolumn{2}{c|}{Multiplication $\cdot$} \\
+				\hline
+				\textbullet \ \hyperref[assoziativ]{Assoziativ} & $a+(b+c) = (a+b)+c$ & \textbullet \ \hyperref[assoziativ]{Assoziativ} & $a \cdot (b \cdot c) = (a \cdot b) \cdot c$ \\
+				\textbullet \ \hyperref[kommutativ]{Kommutativ}  & $a+b = b+a$ & \textbullet \ \hyperref[kommutativ]{Kommutativ} & $a \cdot b = b \cdot a$ \\
+				\textbullet \ \hyperref[neutral_element]{neutrales Ele.}  & $a+0 = a$ & \textbullet \ \hyperref[neutral_element]{neutrales Ele.} & $a \cdot 1 = a$ \\
+				\textbullet \ \hyperref[invers_element]{inverses Ele.}  & $a+(-a) = 0$ & \textbullet \ \hyperref[invers_element]{inverses Ele.} & $a \cdot a^{-1} = 1$ \\
+				\textbullet \ \hyperref[distributiv]{Distributiv} & $a \cdot (b+c) = \textbullet \ ab+ac$ & (beidseitg) als 2 Axiome gezählt & \\
+				\textbullet \ $nE_{add} \neq nE_{mult}$ & & & \\
+				\textbullet \ \hyperref[abgeschlossenheit_menge]{Abgeschlossenheit} & & & \\
+				\hline
+			\end{tabular}
+		\end{proposition}
+		
+		\begin{proposition}{\currentboxsection \ Vektorraum}{Vektorraum} \label{vektorraum} \index{Vektorraum} \\
+			Eine \hyperref[menge]{Menge} mit $2$ \hyperref[verknuepfung]{Verknüpfungen} $(+,\cdot)$ über den \hyperref[koerper]{Körper} $K$ mit $a,b \in K$ \\
+			8 Axiome \\
+			\begin{tabular}{|m{2.5cm}|>{\centering\arraybackslash}m{3.6cm}|m{2.5cm}|>{\centering\arraybackslash}m{4.6cm}|}
+				\hline
+				\multicolumn{2}{|c|}{Vektoraddition $+$} & \multicolumn{2}{c|}{Skalarmultiplication $\cdot$} \\
+				\hline
+				\textbullet \ \hyperref[assoziativ]{Assoziativ} & $\vec{u} + (\vec{v} + \vec{w}) = (\vec{u} + \vec{v}) + \vec{w}$ & \textbullet \ \hyperref[distributiv]{Distributiv} & $\alpha \cdot (\vec{u} + \vec{v}) = (\alpha \cdot \vec{u}) + (\alpha \cdot \vec{v})$ \\
+				\textbullet \ \hyperref[kommutativ]{Kommutativ}  & $\vec{u} + \vec{v} = \vec{v} + \vec{u}$ & \textbullet \ \hyperref[distributiv]{Distributiv} & $(\alpha + \beta) \cdot \vec{v} = (\alpha \cdot \vec{v}) + (\beta \cdot \vec{v})$ \\
+				\textbullet \ \hyperref[neutral_element]{neutrales Ele.}  & $\vec{v} + 0 = \vec{v}$ & \textbullet \ \hyperref[assoziativ]{Assoziativ} & $(\alpha \cdot \beta) \cdot \vec{v} = \alpha \cdot (\beta \cdot \vec{v})$ \\
+				\textbullet \ \hyperref[invers_element]{inverses Ele.}  & $\vec{v} + (-\vec{v}) = 0$ & \textbullet \ \hyperref[neutral_element]{neutrales Ele.} & $1 \cdot \vec{v} = \vec{v}$ \\
+				& $\vec{u}, \vec{v}, \vec{w}, 0, -\vec{v} \in V$ & & $\alpha , \beta , 1 \in K$ \\
+				\hline
+			\end{tabular}
+		\end{proposition}
+		
+		\begin{proposition}{\currentboxsection \ Untervektorraum}{Untervektorraum} \label{untervektorraum} \index{Untervektorraum} \\
+			\textbullet\ $U \subseteq V$ \hspace{6cm} $U$: Untervektorraum, $V$: Obervektorraum\\
+			\textbullet\ $U \neq \emptyset$	\vspace{3pt} \\
+			\begin{tabular}{@{}ll@{}}
+				\textbullet\ $\forall u,v \in U:$ & \multirow{2}{*}{
+					$
+					\begin{rcases}
+						u+v \in U \\
+						\alpha \cot v \in U
+					\end{rcases}
+					\text{my conclusion}
+					$
+				} \\
+				\textbullet\ $\forall v \in U, \forall \alpha \in \mathbb{K}:$ & \\
+			\end{tabular}	
+		\end{proposition}
+		
+		
+		
+		
+		\begin{proposition}{\currentboxsection \ Raum (Allgemein)}{Raum (Allgemein)} \label{raum_allgemein} \index{Raum (Allgemein)} \\
+			Eine \hyperref[menge]{Menge} mit einer \hyperref[algebraische_struktur]{algebraischen Struktur} \\
+			Räume haben eine \hyperref[dimension]{Dimension}
+		\end{proposition}
+			
+		\begin{proposition}{\currentboxsection \ Familie}{Familie} \label{familie} \index{Familie} \\
+			Eine \hyperref[menge]{Menge} deren Elemente alle eine gemeinsame Eigenschaft haben.
+		\end{proposition}
+
+	
+
+	
+		
+		
+		
+				
+	% ================================================================================
+	\mysection{Fun Fact}
+	% ================================================================================
+		\begin{proposition}{\currentboxsection \ Russels Paradox}{Russels Paradox} \label{Russels_Paradox} \index{Russels Paradox} \\
+			Die \hyperref[menge]{Menge} aller \hyperref[menge]{Mengen}, die sich nicht selbst enthalten \Lightning \\
+			\href{https://en.wikipedia.org/wiki/Russell%27s_paradox}{Russel's Paradox (Wikipedia 26.06.23)}
+		\end{proposition}

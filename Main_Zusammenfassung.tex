@@ -1,0 +1,79 @@
+% =================================== Preamble ===================================
+\documentclass[ngerman]{scrreprt}																	% Documentclass
+% ============================ Packages and Commands =============================
+\usepackage{edv_pakete}																				% Define packages in extra file
+\input{adrians_commands}																			% include custom definitions from extra file
+\input{adrians_boxen} 																				% include custom definitions for boxes from extra file
+
+% ==================================== Paths =====================================
+\graphicspath{figs/}																				% Path to the Figure folder
+\addbibresource{bib/refs.bib}																		% Path to the Bibliography Folder
+\loadglsentries{glossary/myglossaryentries.tex}														% Path to the Glossary Folder
+% ================================================================================
+\makeglossaries																						% Generate Glossary
+\makeindex[columns=3, title=Stichwortverzeichnis, options={-s index/mystyle.ist}]					% Generate Index
+
+% ============================ Titlepage Information =============================
+\title{Physik Mathe Zusammenfassung}																% Title
+\subtitle{Semester I-VI}																			% Subtitle	
+\author{Adrian Scholand}																			% Author
+\date{\today}																						% Date
+% ======================== Header and Footer in scrreprt =========================
+\newcommand{\docversion}{0.1}
+\pagestyle{scrheadings}
+\renewcommand*{\chapterpagestyle}{scrheadings}
+%Kopfzeile
+\ihead{}
+\chead{}
+\ohead{Physik Mathe Zusammenfassung}
+%Fußzeile
+\ifoot{Adrian Scholand}
+\cfoot{Page \pagemark{} / \pageref{LastPage}}
+\ofoot{Version 1.2} 
+\setheadsepline{0.4pt}
+\setfootsepline{0.4pt}
+
+% ============================ Spacing for Equations =============================
+\setlength{\abovedisplayskip}{12pt plus 3pt minus 9pt} % Reset to default spacing
+\setlength{\belowdisplayskip}{12pt plus 3pt minus 9pt} % Reset to default spacing
+
+% ======================== Now the actual document starts ========================
+\begin{document}
+	\maketitle																						% Title-page
+	\clearpage
+	\thispagestyle{empty}
+	\include{erklaerung.tex}																		% Dissclaimer
+	\clearpage
+	\ihead{Inhaltsverzeichnis}
+	\tableofcontents																				% Table of content
+	\clearpage
+	% ================================= Content ==================================
+	\include{Examples.tex}
+	\clearpage
+	\include{Theo_I.tex}
+	\clearpage
+	\include{Math_II.tex}
+	\clearpage
+	\include{Undefined_Terms.tex}
+	% ============================================================================
+	\clearpage
+	\ihead{Index}
+	\printindex																						% Add Index
+	
+	\clearpage
+	\ihead{Glossary}
+	\printglossaries																				% Add Glossary
+	
+	\clearpage
+	\ihead{List of Tabels}
+	\listoftables																					% Add List of all Tabels
+	
+	\clearpage
+	\ihead{List of Figures}
+	\listoffigures																					% Add List of all Figures (pictures)
+
+	\clearpage
+	\ihead{Bibliography}
+	\nocite{*}																						% Print all books that weren't cited
+	\printbibliography[heading=bibintoc]															% Add Bibliography (add it to the table of contents)
+\end{document}

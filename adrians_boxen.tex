@@ -1,0 +1,386 @@
+% ================================= New Commands =================================
+
+% ======================= Colors for the Definition Boxes ========================
+\definecolor{definition_color}{RGB}{204,204,255}			% Definition		#ccccff #Blau
+\definecolor{definition_line_color}{RGB}{77,77,255}			% Definition_Linie	#4d4dff
+\definecolor{proposition_color}{RGB}{255,191,191}			% Satz				#ffbfbf #Rot
+\definecolor{proposition_Line_color}{RGB}{255,114,114}		% Satz_Line			#ff7272
+\definecolor{theorem_color}{RGB}{195,214,188}				% Theorem			#c3d6bc #Grün
+\definecolor{theorem_Line_color}{RGB}{112,157,96}			% Theorem_Line		#709d60
+\definecolor{corollary_color}{RGB}{255,230,128}				% Korollar			#ffe680 #Gelb-Orange
+\definecolor{corollary_Line_color}{RGB}{255,218,69}			% Korollar_Line		#ffda45
+\definecolor{lemma_color}{RGB}{255,228,196}					% Lemma				#ffe4c4 #hell-Orange 
+\definecolor{lemma_Line_color}{RGB}{254,216,177}			% Lemma	_Line		#fed8b1
+\definecolor{remark_color}{RGB}{223,223,223}				% Bemerkung			#dfdfdf #Grau
+\definecolor{remark_Line_color}{RGB}{166,166,166}			% Bemerkung_Line	#a6a6a6
+\definecolor{supplement_color}{RGB}{254,246,209}			% Ergänzung			#fef6d1 #hell-Gelb
+\definecolor{supplement_Line_color}{RGB}{255,225,91}		% Ergänzung_Line	#ffe15b
+\definecolor{example_color}{RGB}{223,223,223}				% Beispiel			#dfdfdf #Grau
+\definecolor{example_Line_color}{RGB}{166,166,166}			% Beispiel_Line		#a6a6a6
+\definecolor{excursion_color}{RGB}{255,255,0}				% Exkurs			#ffff00	#Gelb
+\definecolor{excursion_Line_color}{RGB}{230,230,0}			% Exkurs_Line		#e6e600
+
+\definecolor{Box_Color}{RGB}{255,191,191}
+\definecolor{Box_Line_Color}{RGB}{255,114,114}
+
+% ========================= Box-Devision-level Counters ==========================
+\newcounter{boxchaptercount}
+\newcounter{boxsectioncount}
+\newcounter{boxsubsectioncount}
+\newcounter{boxsubsubsectioncount}
+\newcounter{boxparagraphcount}
+\newcounter{boxsubparagraphcount}
+
+% ============================== Total Box Counter ===============================
+\newcounter{boxcount}
+
+% =========================== Devision-level Counters ============================
+\newcounter{chaptercount}
+\newcounter{sectioncount}
+\newcounter{subsectioncount}
+\newcounter{subsubsectioncount}
+\newcounter{paragraphcount}
+\newcounter{subparagraphcount}
+
+% ========================== Box-Devision-level Numbers ==========================
+\newcommand{\boxchapternumber}{\arabic{boxchaptercount}}
+\newcommand{\boxsectionnumber}{\arabic{boxsectioncount}}
+\newcommand{\boxsubsectionnumber}{\arabic{boxsubsectioncount}}
+\newcommand{\boxsubsubsectionnumber}{\arabic{boxsubsubsectioncount}}
+\newcommand{\boxparagraphnumber}{\arabic{boxparagraphcount}}
+\newcommand{\boxsubparagraphnumber}{\arabic{boxsubparagraphcount}}
+
+\newcommand{\chapternumber}{\arabic{chaptercount}}
+\newcommand{\sectionnumber}{\arabic{sectioncount}}
+\newcommand{\subsectionnumber}{\arabic{subsectioncount}}
+\newcommand{\subsubsectionnumber}{\arabic{subsubsectioncount}}
+\newcommand{\paragraphnumber}{\arabic{paragraphcount}}
+\newcommand{\subparagraphnumber}{\arabic{subparagraphcount}}
+
+% ====== Set Box-Devision-Level Counters to current values of Devision (0) =======
+\setcounter{chaptercount}{\arabic{chapter}}
+\setcounter{sectioncount}{\arabic{section}}
+\setcounter{subsectioncount}{\arabic{subsection}}
+\setcounter{subsubsectioncount}{\arabic{subsubsection}}
+\setcounter{paragraphcount}{\arabic{paragraph}}
+\setcounter{subparagraphcount}{\arabic{subparagraph}}
+
+\setcounter{boxchaptercount}{\arabic{chapter}}
+\setcounter{boxsectioncount}{\arabic{section}}
+\setcounter{boxsubsectioncount}{\arabic{subsection}}
+\setcounter{boxsubsubsectioncount}{\arabic{subsubsection}}
+\setcounter{boxparagraphcount}{\arabic{paragraph}}
+\setcounter{boxsubparagraphcount}{\arabic{subparagraph}}
+
+% ====================== Devisions also increment counters =======================
+\newcommand{\mychapter}[1]{
+	\setcounter{chapter}{\value{boxchaptercount}}
+	\clearpage
+	\ihead{#1}
+	\chapter{#1}
+	\stepcounter{chaptercount}
+	\stepcounter{boxchaptercount}
+	\setcounter{sectioncount}{\arabic{section}}
+	\setcounter{subsectioncount}{\arabic{subsection}}
+	\setcounter{subsubsectioncount}{\arabic{subsubsection}}
+	\setcounter{paragraphcount}{\arabic{paragraph}}
+	\setcounter{subparagraphcount}{\arabic{subparagraph}}
+	\setcounter{boxsectioncount}{\arabic{section}}
+	\setcounter{boxsubsectioncount}{\arabic{subsection}}
+	\setcounter{boxsubsubsectioncount}{\arabic{subsubsection}}
+	\setcounter{boxparagraphcount}{\arabic{paragraph}}
+	\setcounter{boxsubparagraphcount}{\arabic{subparagraph}}
+}
+\newcommand{\mysection}[1]{
+	\setcounter{section}{\value{boxsectioncount}}
+	\section{#1}
+	\stepcounter{sectioncount}
+	\stepcounter{boxsectioncount}
+	\setcounter{subsectioncount}{\arabic{subsection}}
+	\setcounter{subsubsectioncount}{\arabic{subsubsection}}
+	\setcounter{paragraphcount}{\arabic{paragraph}}
+	\setcounter{subparagraphcount}{\arabic{subparagraph}}
+	\setcounter{boxsubsectioncount}{\arabic{subsection}}
+	\setcounter{boxsubsubsectioncount}{\arabic{subsubsection}}
+	\setcounter{boxparagraphcount}{\arabic{paragraph}}
+	\setcounter{boxsubparagraphcount}{\arabic{subparagraph}}
+}
+\newcommand{\mysubsection}[1]{
+	\setcounter{subsection}{\value{boxsubsectioncount}}
+	\subsection{#1}
+	\stepcounter{subsectioncount}
+	\stepcounter{boxsubsectioncount}
+	\setcounter{subsubsectioncount}{\arabic{subsubsection}}
+	\setcounter{paragraphcount}{\arabic{paragraph}}
+	\setcounter{subparagraphcount}{\arabic{subparagraph}}
+	\setcounter{boxsubsubsectioncount}{\arabic{subsubsection}}
+	\setcounter{boxparagraphcount}{\arabic{paragraph}}
+	\setcounter{boxsubparagraphcount}{\arabic{subparagraph}}
+}
+\newcommand{\mysubsubsection}[1]{
+	\setcounter{subsubsection}{\value{boxsubsubsectioncount}}
+	\subsubsection{#1}
+	\stepcounter{subsubsectioncount}
+	\stepcounter{boxsubsubsectioncount}
+	\setcounter{paragraphcount}{\arabic{paragraph}}
+	\setcounter{subparagraphcount}{\arabic{subparagraph}}
+	\setcounter{boxparagraphcount}{\arabic{paragraph}}
+	\setcounter{boxsubparagraphcount}{\arabic{subparagraph}}
+}
+\newcommand{\myparagraph}[1]{
+	\setcounter{paragraph}{\value{boxparagraphcount}}
+	\paragraph*{#1}
+	\stepcounter{paragraphcount}
+	\stepcounter{boxparagraphcount}
+}
+\newcommand{\mysubparagraph}[1]{
+	\setcounter{subparagraph}{\value{boxsubparagraphcount}}
+	\subparagraph*{#1}
+	\stepcounter{subparagraphcount}
+	\stepcounter{boxsubparagraphcount}
+}
+
+% ========================== Current Box-Devision-Level ==========================
+\newcommand{\currentboxsection}{%
+	\ifnum\value{boxsubparagraphcount}>0
+	\boxchapternumber.\boxsectionnumber.\boxsubsectionnumber.\boxsubsubsectionnumber%.\boxparagraphnumber.\boxsubparagraphnumber%
+	\else
+	\ifnum\value{boxparagraphcount}>0
+	\boxchapternumber.\boxsectionnumber.\boxsubsectionnumber.\boxsubsubsectionnumber%.\boxparagraphnumber%
+	\else
+	\ifnum\value{boxsubsubsectioncount}>0
+	\boxchapternumber.\boxsectionnumber.\boxsubsectionnumber.\boxsubsubsectionnumber%
+	\else
+	\ifnum\value{boxsubsectioncount}>0
+	\boxchapternumber.\boxsectionnumber.\boxsubsectionnumber%
+	\else
+	\ifnum\value{boxsectioncount}>0
+	\boxchapternumber.\boxsectionnumber%
+	\else
+	\boxchapternumber%
+	\fi
+	\fi
+	\fi
+	\fi
+	\fi
+}
+% ============================ Current Devision-Level ============================
+\newcommand{\currentsection}{%
+	\ifnum\value{subparagraphcount}>0
+	\boxchapternumber.\boxsectionnumber.\boxsubsectionnumber.\boxsubsubsectionnumber%.\boxparagraphnumber.\boxsubparagraphnumber%
+	\else
+	\ifnum\value{paragraphcount}>0
+	\boxchapternumber.\boxsectionnumber.\boxsubsectionnumber.\boxsubsubsectionnumber%.\boxparagraphnumber%
+	\else
+	\ifnum\value{subsubsectioncount}>0
+	\boxchapternumber.\boxsectionnumber.\boxsubsectionnumber.\boxsubsubsectionnumber%
+	\else
+	\ifnum\value{subsectioncount}>0
+	\boxchapternumber.\boxsectionnumber.\boxsubsectionnumber%
+	\else
+	\ifnum\value{sectioncount}>0
+	\boxchapternumber.\boxsectionnumber%
+	\else
+	\boxchapternumber%
+	\fi
+	\fi
+	\fi
+	\fi
+	\fi
+}
+% ============================ Current Devision Type =============================
+\newcommand{\currentsectiontype}{%
+	\ifnum\value{subparagraphcount}>0
+	subparagraph%
+	\else
+	\ifnum\value{paragraphcount}>0
+	paragraph%
+	\else
+	\ifnum\value{subsubsectioncount}>0
+	subsubsection%
+	\else
+	\ifnum\value{subsectioncount}>0
+	subsection%
+	\else
+	\ifnum\value{sectioncount}>0
+	section%
+	\else
+	chapter%
+	\fi
+	\fi
+	\fi
+	\fi
+	\fi
+}
+% =========================== Current Devision Type-1 ============================
+\newcommand{\currentsectiontypeminusone}{%
+	\ifnum\value{subparagraphcount}>0
+	subsubsection%
+	\else
+	\ifnum\value{paragraphcount}>0
+	subsubsection%
+	\else
+	\ifnum\value{subsubsectioncount}>0
+	subsubsection%
+	\else
+	\ifnum\value{subsectioncount}>0
+	subsubsection%
+	\else
+	\ifnum\value{sectioncount}>0
+	subsection%
+	\else
+	section%
+	\fi
+	\fi
+	\fi
+	\fi
+	\fi
+}
+% ======================= Step Box-Devision-Level Counters =======================
+\newcommand{\boxstepcounter}{%
+	\ifnum\value{subparagraphcount}>0
+	\stepcounter{boxsubsubsectioncount}%
+	\else
+	\ifnum\value{paragraphcount}>0
+	\stepcounter{boxsubsubsectioncount}%
+	\else
+	\ifnum\value{subsubsectioncount}>0
+	\stepcounter{boxsubsubsectioncount}%
+	\else
+	\ifnum\value{subsectioncount}>0
+	\stepcounter{boxsubsubsectioncount}%
+	\else
+	\ifnum\value{sectioncount}>0
+	\stepcounter{boxsubsectioncount}%
+	\else
+	\stepcounter{boxsectioncount}%
+	\fi
+	\fi
+	\fi
+	\fi
+	\fi
+}
+
+\newcommand{\allmycounters}{%
+	Chapter Count: \chapternumber \\
+	Section Count: \sectionnumber \\
+	Subsection Count: \subsectionnumber \\
+	Subsubsection Count: \subsubsectionnumber \\
+	Paragraph Count: \paragraphnumber \\
+	Subparagraph Count: \subparagraphnumber
+	\bigbreak \noindent
+	Box Chapter Count: \boxchapternumber \\
+	Box Section Count: \boxsectionnumber \\
+	Box Subsection Count: \boxsubsectionnumber \\
+	Box Subsubsection Count: \boxsubsubsectionnumber \\
+	Box Paragraph Count: \boxparagraphnumber \\
+	Box Subparagraph Count: \boxsubparagraphnumber
+	\bigbreak \noindent
+	current section: \currentsection \\
+	current boxsection \currentboxsection \\
+	current section type: \currentsectiontype \\
+	current section type minus one: \currentsectiontypeminusone
+}
+
+% =============================== Definition Boxes ===============================
+\newenvironment{mybox}[2]{%
+	\boxstepcounter
+	\stepcounter{boxcount}
+	\addcontentsline{toc}{\currentsectiontypeminusone}{\protect\numberline{\currentboxsection} #2}%
+	\begin{mdframed}[linecolor=Box_Line_Color, backgroundcolor=Box_Color, middlelinewidth=2pt, roundcorner=5pt,nobreak=true]
+		\textbf{#1}
+	}{
+	\end{mdframed}
+}
+\newenvironment{redbox}[2]{%
+	\boxstepcounter
+	\stepcounter{boxcount}
+	\addcontentsline{toc}{\currentsectiontypeminusone}{\protect\numberline{\currentboxsection} #2}%
+	\begin{mdframed}[linecolor=Box_Line_Color, backgroundcolor=Box_Color, middlelinewidth=2pt, roundcorner=5pt,nobreak=true]
+		\textbf{#1}
+	}{
+	\end{mdframed}
+}
+
+% ------------------------------------------------
+\newenvironment{definition}[2]{%
+	\boxstepcounter
+	\stepcounter{boxcount}
+	\addcontentsline{toc}{\currentsectiontypeminusone}{\protect\numberline{\currentboxsection} #2}%
+	\begin{mdframed}[linecolor=definition_line_color,backgroundcolor=definition_color, middlelinewidth=2pt, roundcorner=5pt,nobreak=true]
+		\textbf{#1}
+	}{
+	\end{mdframed}
+}
+\newenvironment{proposition}[2]{%
+	\boxstepcounter
+	\stepcounter{boxcount}
+	\addcontentsline{toc}{\currentsectiontypeminusone}{\protect\numberline{\currentboxsection} #2}%
+	\begin{mdframed}[linecolor=proposition_Line_color, backgroundcolor=proposition_color, middlelinewidth=2pt, roundcorner=5pt,nobreak=true]
+		\textbf{#1}
+	}{
+	\end{mdframed}
+}
+\newenvironment{theorem}[2]{%
+	\boxstepcounter
+	\stepcounter{boxcount}
+	\addcontentsline{toc}{\currentsectiontypeminusone}{\protect\numberline{\currentboxsection} #2}%
+	\begin{mdframed}[linecolor=theorem_Line_color, backgroundcolor=theorem_color, middlelinewidth=2pt, roundcorner=5pt,nobreak=true]
+		\textbf{#1}
+	}{
+	\end{mdframed}
+}
+\newenvironment{corollary}[2]{%
+	\boxstepcounter
+	\stepcounter{boxcount}
+	\addcontentsline{toc}{\currentsectiontypeminusone}{\protect\numberline{\currentboxsection} #2}%
+	\begin{mdframed}[linecolor=corollary_Line_color, backgroundcolor=corollary_color, middlelinewidth=2pt, roundcorner=5pt,nobreak=true]
+		\textbf{#1}
+	}{
+	\end{mdframed}
+}
+\newenvironment{lemma}[2]{%
+	\boxstepcounter
+	\stepcounter{boxcount}
+	\addcontentsline{toc}{\currentsectiontypeminusone}{\protect\numberline{\currentboxsection} #2}%
+	\begin{mdframed}[linecolor=lemma_Line_color, backgroundcolor=lemma_color, middlelinewidth=2pt, roundcorner=5pt,nobreak=true]
+		\textbf{#1}
+	}{
+	\end{mdframed}
+}
+\newenvironment{remark}[2]{%
+	\boxstepcounter
+	\stepcounter{boxcount}
+	\addcontentsline{toc}{\currentsectiontypeminusone}{\protect\numberline{\currentboxsection} #2}%
+	\begin{mdframed}[linecolor=remark_Line_color, backgroundcolor=remark_color, middlelinewidth=2pt, roundcorner=5pt,nobreak=true]
+		\textbf{#1}
+	}{
+	\end{mdframed}
+}
+\newenvironment{supplement}[2]{%
+	\boxstepcounter
+	\stepcounter{boxcount}
+	\addcontentsline{toc}{\currentsectiontypeminusone}{\protect\numberline{\currentboxsection} #2}%
+	\begin{mdframed}[linecolor=supplement_Line_color, backgroundcolor=supplement_color, middlelinewidth=2pt, roundcorner=5pt,nobreak=true]
+		\textbf{#1}
+	}{
+	\end{mdframed}
+}
+\newenvironment{example}[2]{%
+	\boxstepcounter
+	\stepcounter{boxcount}
+	\addcontentsline{toc}{\currentsectiontypeminusone}{\protect\numberline{\currentboxsection} #2}%
+	\begin{mdframed}[linecolor=example_Line_color, backgroundcolor=example_color, middlelinewidth=2pt, roundcorner=5pt,nobreak=true]
+		\textbf{#1}
+	}{
+	\end{mdframed}
+}
+\newenvironment{excursion}[2]{%
+	\boxstepcounter
+	\stepcounter{boxcount}
+	\addcontentsline{toc}{\currentsectiontypeminusone}{\protect\numberline{\currentboxsection} #2}%
+	\begin{mdframed}[linecolor=excursion_Line_color, backgroundcolor=excursion_color, middlelinewidth=2pt, roundcorner=5pt,nobreak=true]
+		\textbf{#1}
+	}{
+	\end{mdframed}
+}
